@@ -1,4 +1,4 @@
-# 어드벤쳐디자인1 - 자율주행 분리수거 쓰레기통
+# Autonomous Mobile Trash-Can Robot
 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white)](https://youtu.be/tZrXBu0co70?si=BNptzdELSQ7ZVaE2)
 
