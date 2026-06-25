@@ -1,11 +1,50 @@
-## 어드벤쳐디자인1 프로젝트
+# 어드벤쳐디자인1 - 자율주행 분리수거 쓰레기통
 
-1학년 2학기 어드벤쳐디자인1
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white)](https://youtu.be/tZrXBu0co70?si=BNptzdELSQ7ZVaE2)
 
----
+광장, 역 등 유동 인구가 많은 공간을 대상으로 한 이동형 분리수거 쓰레기통 제작 프로젝트
 
-광장이나 역 같은 곳에서 돌아다닐 수 있는 움직이는 쓰레기통을 제작하였다. 로봇은 라즈베리파이에 탑재된 카메라로 바닥의 ArUco Marker를 인식하여 지정된 구역을 돌아다닌다. 로봇 앞부분에 탑재된 초음파 센서 3개 중 하나라도 정해진 값보다 작아지면 로봇이 멈추도록 하였다. 또한 로봇 상단에 초음파 센서를 활용한 레이더를 제작하여 윗부분에서도 거리 감지를 할 수 있도록 하였다.</br>
-로봇이 멈추면 쓰레기를 넣고 로봇 앞부분의 쓰레기 종류에 따른 버튼을 누르면 정해진 위치로 이동하여 버린다. 쓰레기가 차있는 정도를 확인하기 위해 로봇의 후면은 포맥스가 아닌 아크릴을 사용하였다.</br>
-</br>
-![KakaoTalk_20231220_204244787_04](https://github.com/PolyGon-13/AdventureDesign1/assets/107293272/0346cb36-d508-4d83-8097-bdf1061fcbb7)
-![KakaoTalk_20231220_204244787_01](https://github.com/PolyGon-13/AdventureDesign1/assets/107293272/b8532fcd-6e05-4907-8c7f-465bb89e3636)
+## 개요
+
+- DYNAMIXEL 모터 기반 이동 플랫폼
+- 초음파 센서 기반 사람 및 장애물 감지
+- Raspberry Pi 카메라 기반 ArUco Marker 인식
+- 버튼 입력 기반 내부 레일 이동 및 하단 개폐식 배출 구조
+- 후면 아크릴 구조와 미니 디스플레이 기반 상태 확인
+
+## 전체 구조
+
+### 이동 플랫폼과 외부 프레임
+
+<p align="left">
+  <img src="./image/robot-01.jpg" alt="이동 플랫폼과 외부 프레임" width="360">
+</p>
+
+### 전면 수거부와 센서 배치
+
+<p align="left">
+  <img src="./image/robot-03.jpg" alt="전면 수거부와 센서 배치" width="360">
+</p>
+
+## 분리수거 구조
+
+### 내부 레일과 분리수거 공간
+
+<p align="left">
+  <img src="./image/robot-02.jpg" alt="내부 레일과 분리수거 공간" width="360">
+</p>
+
+### 미니 디스플레이와 초음파 센서
+
+<p align="left">
+  <img src="./image/robot-04.jpg" alt="미니 디스플레이와 초음파 센서" width="360">
+</p>
+
+## 동작 흐름
+
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "15px"}} }%%
+flowchart LR
+    A[사람/장애물 감지] --> B[로봇 정지] --> C[쓰레기 투입]
+    C --> D[분리수거 버튼 입력] --> E[내부 레일 이동] --> F[지정 칸 배출]
+```
